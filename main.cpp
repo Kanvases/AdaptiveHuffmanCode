@@ -8,19 +8,41 @@
 
 #include <iostream>
 #include "AdaptivehuffmanCoding.hpp"
-#include "Node.hpp"
+//#include "Node.hpp"
 using namespace std;
 int main(int argc, const char * argv[]) {
-    AdaptiveHuffmanTree AHK=AdaptiveHuffmanTree();
-    string test="ABBCADAD";
-    
-    cout<<AHK.encoder(test)<<endl;
-    cout<<"A:"<<AHK.getCode('A')<<endl;
-    cout<<"B:"<<AHK.getCode('B')<<endl;
-    cout<<"C:"<<AHK.getCode('C')<<endl;
-    cout<<"D:"<<AHK.getCode('D')<<endl;
-    
-    cout<<"00100011:"<<AHK.decoder("00100011")<<endl;
+    if(argv[1]==nullptr){
+        cout<<"useage:"<<endl;
+        cout<<"'./ahk -e' to execute a example."<<endl;
+        cout<<"'./ahk -i your_text' to encode&decode."<<endl;
+    }
+    else if(strcmp(argv[1],"-e")==0){
+        AdaptiveHuffmanTree AHK=AdaptiveHuffmanTree();
+        string test="ABBCADAD";
+        cout<<"test string: "<<test<<endl;
+        string coding="";
+        cout<<AHK.encoder(test)<<endl;
+        for(size_t i=0;i<test.size();i++){
+            coding+=AHK.getCode(test[i]);
+        }
+        cout<<"coding: "<<coding<<endl;
+        cout<<"decoding:  "<<AHK.decoder(coding)<<endl;
+    }
+    else if(strcmp(argv[1],"-i")==0){
+        if(argv[2]==nullptr){
+            cout<<"your text not found.try it:"<<endl;
+            cout<<"'./ahk -i your_text'"<<endl;
+        }
+        AdaptiveHuffmanTree AHK=AdaptiveHuffmanTree();
+        string test=argv[2];
+        string coding="";
+        cout<<AHK.encoder(test)<<endl;
+        for(size_t i=0;i<test.size();i++){
+            coding+=AHK.getCode(test[i]);
+        }
+        cout<<"coding: "<<coding<<endl;
+        cout<<"decoding:  "<<AHK.decoder(coding)<<endl;
+    }
     
     return 0;
 }

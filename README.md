@@ -23,3 +23,17 @@ cout<<"B:"<<AHK.getCode('B')<<endl;
 ```
 cout<<"00100011:"<<AHK.decoder("00100011")<<endl;
 ```
+update:executable
+---
+On MacOS/Linux, now you can run a Terminal at the folder, and type
+```
+./ahk -e
+```
+to execute a example.or
+```
+./ahk -i your_text
+```
+to encode/decode the any text.
+
+
+(奇技淫巧😂)

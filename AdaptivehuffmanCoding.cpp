@@ -106,6 +106,22 @@ string AdaptiveHuffmanTree::encoder(string text){
     }
     return result;
 }
+string AdaptiveHuffmanTree::decoder(string binStr){
+    string result="";
+    Node* node=_root;
+    for(size_t i=0;i<binStr.size();i++){
+        if(binStr[i]=='0'){
+            node=node->left();
+        }else{
+            node=node->right();
+        }
+        if(node->data()!='\0'){
+            result +=node->data();
+            node=_root;
+        }
+    }
+    return result;
+}
 string AdaptiveHuffmanTree::getCode(const char data){
     return _getCode(data, _root);
 }

@@ -32,7 +32,7 @@ public:
     string getCode(const char);
     AdaptiveHuffmanTree();
     string encoder(string);
-    
+    string decoder(string);
     //~AdaptiveHuffmanTree();
 };
 

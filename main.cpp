@@ -20,6 +20,8 @@ int main(int argc, const char * argv[]) {
     cout<<"C:"<<AHK.getCode('C')<<endl;
     cout<<"D:"<<AHK.getCode('D')<<endl;
     
+    cout<<"00100011:"<<AHK.decoder("00100011")<<endl;
     
     return 0;
 }
+
